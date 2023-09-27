@@ -6,9 +6,10 @@ public class Main {
         System.out.println("What is your starting string?");
         String response = scanner.nextLine();
         menuPrinter(response);
+        response = scanner.nextLine();
+
     }
-    public static String menuPrinter(String input){
-        Scanner scanner = new Scanner(System.in);
+    public static void menuPrinter(String input){
         System.out.println("The string you inputted is: \n");
         System.out.println(input + "\n");
         System.out.println("What would you like to do with your string?");
@@ -19,12 +20,6 @@ public class Main {
         System.out.println("E) Output the substring before a given prefix");
         System.out.println("F) Output the substring before and after a given prefix and suffix");
         System.out.println("G) Exit the program");
-        return scanner.nextLine();
-
-
-
-
-
 
     }
 }
