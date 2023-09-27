@@ -6,7 +6,11 @@ public class Main {
         System.out.println("What is your starting string?");
         String response = scanner.nextLine();
         menuPrinter(response);
-        response = scanner.nextLine();
+        String stringProcess = scanner.nextLine();
+        if (stringProcess.equals("A")) {
+            addToString(response);
+        }
+
 
     }
     public static void menuPrinter(String input){
@@ -22,4 +26,36 @@ public class Main {
         System.out.println("G) Exit the program");
 
     }
+    public static String addToString(String string){
+
+    }
+
+    public static String checkStringForSubstring(String string){
+
+    }
+
+    public static String lengthOfString(String string){
+
+    }
+
+    public static String substringPostPrefix(String string){
+
+    }
+
+    public static String substringPrePrefix(String string){
+
+    }
+
+    public static String substringPostAndPrePrefix(String string){
+
+    }
+
+    public static String exit(String string){
+
+    }
+
+
+
+
+
 }
