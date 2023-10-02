@@ -7,8 +7,12 @@ public class Main {
         String response = scanner.nextLine();
         menuPrinter(response);
         String stringProcess = scanner.nextLine();
+
         if (stringProcess.equals("A")) {
             addToString(response);
+        }
+        else if(stringProcess.equals("B")) {
+            checkStringForSubstring(response);
         }
 
 
