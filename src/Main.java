@@ -12,7 +12,7 @@ public class Main {
             menuPrinter(response);
             String stringProcess = scanner.nextLine();
             //Handles user menu selection
-            //I originaly had this written as an if, but intelliJ "corrected" it to a switch statement.
+            //I originally had this written as an if, but intelliJ "corrected" it to a switch statement.
             //Honestly looks slightly cleaner, so I'll keep it
             switch (stringProcess) {
                 case "A" -> response = addToString(response);
