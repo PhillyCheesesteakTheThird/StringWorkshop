@@ -6,35 +6,27 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         System.out.println("What is your starting string?");
         String response = scanner.nextLine();
+        //On launch isTrue is set to true, running the exit method sets it to false, and kills the program
         while(isTrue) {
+            //Method for printing the possible string workshop options
             menuPrinter(response);
             String stringProcess = scanner.nextLine();
-            if (stringProcess.equals("A")) {
-                addToString(response);
-            } else if (stringProcess.equals("B")) {
-                checkStringForSubstring(response);
-            } else if (stringProcess.equals("C")) {
-                lengthOfString(response);
-            } else if (stringProcess.equals("D")) {
-                substringPostPrefix(response);
-            } else if (stringProcess.equals("E")) {
-                substringPrePrefix(response);
-            } else if (stringProcess.equals("F")) {
-                substringPostAndPrePrefix(response);
-            } else {
-                isTrue = exit();
+            //Handles user menu selection
+            //I originaly had this written as an if, but intelliJ "corrected" it to a switch statement.
+            //Honestly looks slightly cleaner, so I'll keep it
+            switch (stringProcess) {
+                case "A" -> response = addToString(response);
+                case "B" -> checkStringForSubstring(response);
+                case "C" -> lengthOfString(response);
+                case "D" -> substringPostPrefix(response);
+                case "E" -> substringPreSuffix(response);
+                case "F" -> substringPostAndPrePrefix(response);
+                default -> isTrue = exit();
             }
         }
-
-
-
-
-
-
-
     }
     public static void menuPrinter(String input){
-        System.out.println("The string you inputted is: \n");
+        System.out.println("Your string is: \n");
         System.out.println(input + "\n");
         System.out.println("What would you like to do with your string?");
         System.out.println("A) Add more content to the string");
@@ -46,31 +38,35 @@ public class Main {
         System.out.println("G) Exit the program");
 
     }
-    public static void addToString(String string) throws InterruptedException {
+    public static String addToString(String string) throws InterruptedException {
+        //Combines user input string with user newString
         Scanner scanner = new Scanner(System.in);
         System.out.println("What string would you like to add to your base string?");
         String newString = scanner.nextLine();
         System.out.println("Here is your new string!");
         System.out.println(string + newString);
         Thread.sleep(2000);
+        return string+newString;
 
     }
 
     public static void checkStringForSubstring(String string) throws InterruptedException {
+        //Checks string for a substring using .contains()
         Scanner scanner = new Scanner(System.in);
         System.out.println("What is the substring you want to check for?");
         String substring = scanner.nextLine();
         if(string.contains(substring)) {
-            System.out.println("Nice! Your substring '" + substring + "' is present in your original string!");
+            System.out.println("Nice! The substring '" + substring + "' is present in the original string!");
         }
         else {
-            System.out.println("Bummer! Your substring '" + substring + "' is not present in the original string");
+            System.out.println("Bummer! The substring '" + substring + "' is not present in the original string");
         }
         Thread.sleep(2000);
 
     }
 
     public static void lengthOfString(String string) throws InterruptedException {
+        //Prints string length using .length()
         System.out.print("The length of your string is: ");
         System.out.println(string.length());
         Thread.sleep(2000);
@@ -78,9 +74,12 @@ public class Main {
     }
 
     public static void substringPostPrefix(String string) throws InterruptedException {
+        //Returns a substring after a given prefix
         Scanner scanner = new Scanner(System.in);
         System.out.println("What prefix do you want to be mark the start of your substring?");
         String prefix = scanner.nextLine();
+        //If prefix not in string, prints error
+        //If prefix is in string, it prints the text following the prefix--excluding the prefix itself
         if (string.contains(prefix)) {
             System.out.println("Here is the substring following the provided prefix '" + prefix + "': ");
             System.out.println(string.substring(string.indexOf(prefix) + prefix.length()));
@@ -94,7 +93,8 @@ public class Main {
 
     }
 
-    public static void substringPrePrefix(String string) throws InterruptedException {
+    public static void substringPreSuffix(String string) throws InterruptedException {
+        //Prints a substring preceding a given suffix. Excludes the suffix itself
         Scanner scanner = new Scanner(System.in);
         System.out.println("What prefix do you want to mark the end of your substring?");
         String prefix = scanner.nextLine();
@@ -106,40 +106,31 @@ public class Main {
         else {
             System.out.println("I'm sorry but it appears there is no substring '" + prefix+ "' present in the original string: ");
             System.out.println(string);
-
         }
         Thread.sleep(2000);
-
-
     }
 
     public static void substringPostAndPrePrefix(String string) throws InterruptedException {
+        //Returns both sides of the string surrounding a prefix--excluding the prefix itself
         Scanner scanner = new Scanner(System.in);
-        System.out.println("What string do you want to mark the seperation of your string?");
-        String stringSeperator = scanner.nextLine();
-        if (string.contains(stringSeperator)) {
-
-            System.out.println("Here is the substring preceding and following the the provided prefix '" + stringSeperator + "': ");
-            String preceding = string.substring(0, string.indexOf(stringSeperator));
-            String following = string.substring(string.indexOf(stringSeperator) + stringSeperator.length());
+        System.out.println("What string do you want to mark the separation of your string?");
+        String stringSeparator = scanner.nextLine();
+        if (string.contains(stringSeparator)) {
+            System.out.println("Here is the substring preceding and following the the provided prefix '" + stringSeparator + "': ");
+            String preceding = string.substring(0, string.indexOf(stringSeparator));
+            String following = string.substring(string.indexOf(stringSeparator) + stringSeparator.length());
             System.out.println(preceding + following);
         }
         else {
-            System.out.println("I'm sorry but it appears there is no substring '" + stringSeperator+ "' present in the original string: ");
+            System.out.println("I'm sorry but it appears there is no substring '" + stringSeparator+ "' present in the original string: ");
             System.out.println(string);
         }
         Thread.sleep(2000);
-
-
     }
 
     public static boolean exit(){
+        //Closes the program
         return false;
 
     }
-
-
-
-
-
 }
