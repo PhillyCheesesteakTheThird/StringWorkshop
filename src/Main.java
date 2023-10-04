@@ -44,6 +44,7 @@ public class Main {
         System.out.println("What string would you like to add to your base string?");
         String newString = scanner.nextLine();
         System.out.println("Here is your new string!");
+        //Prints the old string concatted with the newString
         System.out.println(string + newString);
         Thread.sleep(2000);
         return string+newString;
@@ -81,6 +82,7 @@ public class Main {
         //If prefix not in string, prints error
         //If prefix is in string, it prints the text following the prefix--excluding the prefix itself
         if (string.contains(prefix)) {
+            //Prints the substring excluding the prefix by adding the length of the prefix to the starting index of the substring
             System.out.println("Here is the substring following the provided prefix '" + prefix + "': ");
             System.out.println(string.substring(string.indexOf(prefix) + prefix.length()));
         }
@@ -97,14 +99,13 @@ public class Main {
         //Prints a substring preceding a given suffix. Excludes the suffix itself
         Scanner scanner = new Scanner(System.in);
         System.out.println("What prefix do you want to mark the end of your substring?");
-        String prefix = scanner.nextLine();
-        if (string.contains(prefix)) {
-
-            System.out.println("Here is the substring preceding the provided prefix '" + prefix + "': ");
-            System.out.println(string.substring(0, string.indexOf(prefix)));
+        String suffix = scanner.nextLine();
+        if (string.contains(suffix)) {
+            System.out.println("Here is the substring preceding the provided prefix '" + suffix + "': ");
+            System.out.println(string.substring(0, string.indexOf(suffix)));
         }
         else {
-            System.out.println("I'm sorry but it appears there is no substring '" + prefix+ "' present in the original string: ");
+            System.out.println("I'm sorry but it appears there is no substring '" + suffix + "' present in the original string: ");
             System.out.println(string);
         }
         Thread.sleep(2000);
@@ -116,10 +117,11 @@ public class Main {
         System.out.println("What string do you want to mark the separation of your string?");
         String stringSeparator = scanner.nextLine();
         if (string.contains(stringSeparator)) {
+            //Uses the same techniques as substringPostPrefix method and substringPreSuffix method, just prints the two results concatted together
             System.out.println("Here is the substring preceding and following the the provided prefix '" + stringSeparator + "': ");
-            String preceding = string.substring(0, string.indexOf(stringSeparator));
-            String following = string.substring(string.indexOf(stringSeparator) + stringSeparator.length());
-            System.out.println(preceding + following);
+            String precedingSubstring = string.substring(0, string.indexOf(stringSeparator));
+            String followingSubstring = string.substring(string.indexOf(stringSeparator) + stringSeparator.length());
+            System.out.println(precedingSubstring + followingSubstring);
         }
         else {
             System.out.println("I'm sorry but it appears there is no substring '" + stringSeparator+ "' present in the original string: ");
