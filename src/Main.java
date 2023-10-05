@@ -37,7 +37,6 @@ public class Main {
         System.out.println("E) Output the substring before a given prefix");
         System.out.println("F) Output the substring between a given prefix and suffix");
         System.out.println("G) Exit the program");
-
     }
 
     public static String addToString(String string) throws InterruptedException {
@@ -50,7 +49,6 @@ public class Main {
         System.out.println(string + newString);
         Thread.sleep(2000);
         return string + newString;
-
     }
 
     public static void checkStringForSubstring(String string) throws InterruptedException {
@@ -64,7 +62,6 @@ public class Main {
             System.out.println("Bummer! The substring '" + substring + "' is not present in the original string");
         }
         Thread.sleep(2000);
-
     }
 
     public static void lengthOfString(String string) throws InterruptedException {
@@ -72,7 +69,6 @@ public class Main {
         System.out.print("The length of your string is: ");
         System.out.println(string.length());
         Thread.sleep(2000);
-
     }
 
     public static void substringPostPrefix(String string) throws InterruptedException {
@@ -91,8 +87,6 @@ public class Main {
             System.out.println(string);
         }
         Thread.sleep(2000);
-
-
     }
 
     public static void substringPreSuffix(String string) throws InterruptedException {
@@ -133,6 +127,5 @@ public class Main {
     public static boolean exit() {
         //Closes the program
         return false;
-
     }
 }
