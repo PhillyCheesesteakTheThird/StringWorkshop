@@ -7,7 +7,7 @@ public class Main {
         System.out.println("What is your starting string?");
         String response = scanner.nextLine();
         //On launch isTrue is set to true, running the exit method sets it to false, and kills the program
-        while(isTrue) {
+        while (isTrue) {
             //Method for printing the possible string workshop options
             menuPrinter(response);
             String stringProcess = scanner.nextLine();
@@ -25,7 +25,8 @@ public class Main {
             }
         }
     }
-    public static void menuPrinter(String input){
+
+    public static void menuPrinter(String input) {
         System.out.println("Your string is: \n");
         System.out.println(input + "\n");
         System.out.println("What would you like to do with your string?");
@@ -38,6 +39,7 @@ public class Main {
         System.out.println("G) Exit the program");
 
     }
+
     public static String addToString(String string) throws InterruptedException {
         //Combines user input string with user newString
         Scanner scanner = new Scanner(System.in);
@@ -47,7 +49,7 @@ public class Main {
         //Prints the old string concatted with the newString
         System.out.println(string + newString);
         Thread.sleep(2000);
-        return string+newString;
+        return string + newString;
 
     }
 
@@ -56,10 +58,9 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         System.out.println("What is the substring you want to check for?");
         String substring = scanner.nextLine();
-        if(string.contains(substring)) {
+        if (string.contains(substring)) {
             System.out.println("Nice! The substring '" + substring + "' is present in the original string!");
-        }
-        else {
+        } else {
             System.out.println("Bummer! The substring '" + substring + "' is not present in the original string");
         }
         Thread.sleep(2000);
@@ -85,9 +86,8 @@ public class Main {
             //Prints the substring excluding the prefix by adding the length of the prefix to the starting index of the substring
             System.out.println("Here is the substring following the provided prefix '" + prefix + "': ");
             System.out.println(string.substring(string.indexOf(prefix) + prefix.length()));
-        }
-        else {
-            System.out.println("I'm sorry but it appears there is no substring '" + prefix+ "' present in the original string:");
+        } else {
+            System.out.println("I'm sorry but it appears there is no substring '" + prefix + "' present in the original string:");
             System.out.println(string);
         }
         Thread.sleep(2000);
@@ -103,8 +103,7 @@ public class Main {
         if (string.contains(suffix)) {
             System.out.println("Here is the substring preceding the provided prefix '" + suffix + "': ");
             System.out.println(string.substring(0, string.indexOf(suffix)));
-        }
-        else {
+        } else {
             System.out.println("I'm sorry but it appears there is no substring '" + suffix + "' present in the original string: ");
             System.out.println(string);
         }
@@ -122,17 +121,16 @@ public class Main {
         if (string.contains(prefix) & (string.contains(suffix))) {
             //Uses the same techniques as substringPostPrefix method and substringPreSuffix method, just prints the two results concatted together
             System.out.println("Here is the substring between the provided prefix '" + prefix + "', and suffix '" + suffix + "': ");
-            String substring = string.substring(string.indexOf(prefix) + prefix.length(), string.indexOf(suffix) -1);
+            String substring = string.substring(string.indexOf(prefix) + prefix.length(), string.indexOf(suffix) - 1);
             System.out.println(substring);
-        }
-        else {
-            System.out.println("I'm sorry but it appears either your prefix '" + prefix+ "' or your suffix  '" + suffix + "' is missing from the original string: ");
+        } else {
+            System.out.println("I'm sorry but it appears either your prefix '" + prefix + "' or your suffix  '" + suffix + "' is missing from the original string: ");
             System.out.println(string);
         }
         Thread.sleep(2000);
     }
 
-    public static boolean exit(){
+    public static boolean exit() {
         //Closes the program
         return false;
 
