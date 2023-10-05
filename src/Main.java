@@ -113,9 +113,10 @@ public class Main {
         String suffix = scanner.nextLine();
 
         if (string.contains(prefix) & (string.contains(suffix))) {
-            //Uses the same techniques as substringPostPrefix method and substringPreSuffix method, just prints the two results concatted together
+            //Gets the index of a user provided prefix and suffix, and returns the text between them, excluding the prefix and suffix.
+            //I add the prefix's length to the index to avoid returning the prefix string
             System.out.println("Here is the substring between the provided prefix '" + prefix + "', and suffix '" + suffix + "': ");
-            String substring = string.substring(string.indexOf(prefix) + prefix.length(), string.indexOf(suffix) - 1);
+            String substring = string.substring(string.indexOf(prefix) + prefix.length(), string.indexOf(suffix));
             System.out.println(substring);
         } else {
             System.out.println("I'm sorry but it appears either your prefix '" + prefix + "' or your suffix  '" + suffix + "' is missing from the original string: ");
